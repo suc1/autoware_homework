@@ -17,10 +17,10 @@ int main(int argc, char **argv)
     std::vector<cv::String> left_back_camera_img_pathes;
     std::vector<cv::String> right_back_camera_img_pathes;
 
-    cv::glob("../data/apollo/lidar/*.pcd", lidar_pathes);
-    cv::glob("../data/apollo/front_camera/*.jpg", front_camera_img_pathes);
-    cv::glob("../data/apollo/left_back_camera/*.jpg", left_back_camera_img_pathes);
-    cv::glob("../data/apollo/right_back_camera/*.jpg", right_back_camera_img_pathes);
+    cv::glob("./data/apollo/lidar/*.pcd", lidar_pathes);
+    cv::glob("./data/apollo/front_camera/*.jpg", front_camera_img_pathes);
+    cv::glob("./data/apollo/left_back_camera/*.jpg", left_back_camera_img_pathes);
+    cv::glob("./data/apollo/right_back_camera/*.jpg", right_back_camera_img_pathes);
 
     std::vector<std::vector<cv::String>> sensors_data_pathes;
     sensors_data_pathes.push_back(lidar_pathes);
@@ -33,7 +33,7 @@ int main(int argc, char **argv)
     sensor_names.push_back("front_camera");
     sensor_names.push_back("left_back_camera");
     sensor_names.push_back("right_back_camera");
-    std::string config_path = "../config/sensors_calib_apollo.yml";
+    std::string config_path = "./config/sensors_calib_apollo.yml";
 
     std::shared_ptr<RgbLidarProcess<pcl::PointXYZRGB>> lidar_processer = std::make_shared<RgbLidarProcess<pcl::PointXYZRGB>>(config_path, sensor_names);
 

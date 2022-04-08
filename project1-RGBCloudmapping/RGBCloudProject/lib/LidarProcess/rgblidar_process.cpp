@@ -581,7 +581,7 @@ void RgbLidarProcess<PointT>::SaveRgbCloudFiles(std::vector<std::vector<cv::Stri
 
     CloudFusionMultiplyRGB(raw_cloud_ptr, image_hash, out_cloud_ptr);
 
-    std::string saved_path = "../data/saved_rgb_clouds/rgb_pcd_" + std::to_string(i) + ".pcd";
+    std::string saved_path = "./data/saved_rgb_clouds/rgb_pcd_" + std::to_string(i) + ".pcd";
 
     pcl::io::savePCDFileASCII(saved_path, *out_cloud_ptr);
 
