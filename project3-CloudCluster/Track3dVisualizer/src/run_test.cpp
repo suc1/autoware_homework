@@ -18,11 +18,11 @@ int main(int argc, char **argv)
     PtCdtr<pcl::PointXYZI> FiltermapCloud;
     Eigen::Vector4f minPoint_map(-1000,-1000,-1000, 1);
     Eigen::Vector4f maxPoint_map( 1000, 1000, 1000, 1);
-    mapCloud=pointProcessorI->loadPcd("../data/pcd/demo_map_around.pcd");
+    mapCloud=pointProcessorI->loadPcd("./data/pcd/demo_map_around.pcd");
     FiltermapCloud=pointProcessorI->FilterCloud(mapCloud, 0.3, minPoint_map, maxPoint_map);
     pointProcessorI->TransformCloud(FiltermapCloud);//地图位姿调整
     
-    std::vector<boost::filesystem::path> stream = pointProcessorI->streamPcd("../data/pcd/data_1");
+    std::vector<boost::filesystem::path> stream = pointProcessorI->streamPcd("./data/pcd/data_1");
     auto streamIterator = stream.begin();
 
     pcl::visualization::PCLVisualizer::Ptr visual(new pcl::visualization::PCLVisualizer("3D Viewer"));
